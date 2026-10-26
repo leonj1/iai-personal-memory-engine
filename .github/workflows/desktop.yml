@@ -21,7 +21,7 @@ jobs:
             args: ""
           - platform: windows-latest
             args: ""
-    runs-on: ${{ matrix.platform }}
+    runs-on: "${{ (matrix.platform) == 'macos-latest' && fromJSON('[\"self-hosted\",\"macOS\",\"ARM64\"]') || (matrix.platform) == 'ubuntu-22.04' && fromJSON('[\"self-hosted\",\"linux\",\"x64\"]') || (matrix.platform) == 'windows-latest' && fromJSON('[\"self-hosted\",\"windows\",\"x64\"]') || (matrix.platform) }}"
     steps:
       - uses: actions/checkout@v4
 

@@ -20,7 +20,7 @@ jobs:
   publish:
     name: publish to PyPI
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
     # The trusted publisher checks the environment claim when it declares one and
     # ignores it otherwise, so naming the environment matches either registration.
     environment: pypi
